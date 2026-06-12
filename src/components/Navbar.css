@@ -1,0 +1,98 @@
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 2rem;
+  transition: background 0.3s, backdrop-filter 0.3s, box-shadow 0.3s;
+}
+
+.navbar.scrolled {
+  background: rgba(10, 10, 15, 0.85);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 var(--border);
+}
+
+.nav-logo {
+  font-family: 'Fira Code', monospace;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.nav-logo span { color: var(--accent2); }
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--text); }
+
+.nav-cta {
+  color: var(--accent2) !important;
+  border: 1px solid var(--accent2);
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s !important;
+}
+
+.nav-cta:hover {
+  background: var(--accent2) !important;
+  color: var(--bg) !important;
+}
+
+.nav-burger {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.nav-mobile {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .nav-links { display: none; }
+  .nav-burger { display: flex; }
+  .nav-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    background: var(--bg2);
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-mobile a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-mobile a:hover { color: var(--text); }
+  .nav-mobile .nav-cta {
+    align-self: flex-start;
+    color: var(--accent2) !important;
+    border: 1px solid var(--accent2);
+    padding: 0.4rem 1rem;
+    border-radius: 6px;
+  }
+}
